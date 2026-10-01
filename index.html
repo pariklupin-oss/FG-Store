@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FG Store</title>
+<meta name="theme-color" content="#22303a">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  html,body{margin:0;height:100%;background:#eceeeb;font-family:system-ui,sans-serif}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+  #msg{padding:40px 20px;text-align:center;color:#22303a}
+</style>
+</head>
+<body>
+<!-- Paste your Apps Script web app link (ends with /exec) between the quotes below -->
+<script>
+  const APP_URL = "PASTE_EXEC_LINK_HERE";
+  if (APP_URL.indexOf('/exec') < 0) {
+    document.write('<p id="msg">FG Store link not set yet. Paste the Apps Script /exec link in index.html.</p>');
+  } else {
+    const f = document.createElement('iframe');
+    f.src = APP_URL; f.title = 'FG Store'; f.allow = 'clipboard-write';
+    document.body.appendChild(f);
+  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
